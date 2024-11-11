@@ -1,182 +1,197 @@
-// 1. Par ou Ímpar
-// Crie uma função chamada `parOuImpar` que recebe um número (tipo: Number).
-// Utilize o operador de mod (%) e uma estrutura condicional `if` para retornar "Par" ou "Ímpar".
+// 1. Crie uma função que receba um número e retorne a soma de todos os números de 1 até o número informado usando um laço `while`.
 
-function parOuImpar(number){
-    if(number % 2 === 0){
-        return "par"
-    }else{
-        return "impar"
+function somaAteNumero(n) {
+    let soma = 0
+    let i = 1
+    while (i <= n) {
+        soma += i
+        i++
     }
+    return soma
 }
-console.log(parOuImpar(4))
 
+console.log(somaAteNumero(5))
 
-// 2. Maior de Três
-// Crie uma função chamada `maiorDeTres` que recebe três números (tipo: Number).
-// Crie uma lógica de programação para retornar o maior número.
+// Exemplo de chamada:
+// console.log(somaAteNumero(5));  // 15 (1+2+3+4+5)
 
-function maiorDeTres(num1, num2, num3){
-    if (num1 >= num2 && num1 >= num3){
-        return num1
-    }else if (num2 >= num1 && num2 >= num3){
-        return num2
-    }else{
-        return num3
+// 2. Crie uma função que receba um array de números e retorne a soma de todos os números maiores que 10 usando um laço `for`.
+
+function somaMaiorQueDez(numeros) {
+    let soma = 0
+    for (let numero of numeros) {
+        if (numero > 10) {
+            soma = soma + numero
+        }
     }
+    return soma;
 }
-console.log(maiorDeTres(5, 10, 3))
 
+console.log(somaMaiorQueDez([5, 15, 3, 20, 7]))
 
-// 3. Verificação de Idade
-// Crie uma função chamada `verificaIdade` que recebe a idade (tipo: Number).
-// Utilize uma estrutura condicional `if` para retornar "Menor de idade" ou "Maior de idade".
+// Exemplo de chamada:
+// console.log(somaMaiorQueDez([5, 15, 3, 20, 7]));  // 35 (15 + 20)
 
-function verificaIdade(idade){
-    if (idade < 18){
-        return "menor de idade"
-    }else{
-        return "maior de idade"
+// 3. Crie uma função que, dado um array de filmes, retorne o nome do primeiro filme cujo título tem mais de 5 letras usando o `for...of`.
+
+function filmeMaiorQueCincoLetras(filmes) {
+    for (let filme of filmes) {
+        if (filme.length > 5) {
+            return filme
+        }
     }
+    return null
 }
-console.log(verificaIdade(15))
 
-// 4. Classificação de Notas
-// Crie uma função chamada `classificaNota` que recebe uma nota (tipo: Number).
-// Utilize `if`, `else if` e `else` para retornar "Aprovado", "Recuperação" ou "Reprovado".
+console.log(filmeMaiorQueCincoLetras(["O Rei Leão", "Naruto", "Avengers", "Star Wars"]))
 
-function classificaNota(nota){
-    if(nota >= 10){
-        return "aprovado"
-    }else if(nota >= 5){
-         return "reprovado"
-    }else if(nota >= 5){
-        return "recuperação"
+// Exemplo de chamada:
+// console.log(filmeMaiorQueCincoLetras(["O Rei Leão", "Naruto", "Avengers", "Star Wars"]));  // "Avengers"
+
+// 4. Crie uma função que receba um array de nomes de personagens de *Hunter x Hunter* com os personagens "Gon Freecss", "Killua Zoldyck", "Leorio Paradinight" e um array de números representando a força de cada personagem, respectivamente 180, 195, 140. A função deve retornar um terceiro array com o nome dos personagens cuja força seja superior a 150, utilizando um laço `for`.
+
+function personagemComForcaSuperiorA150(nomes, forcas) {
+    let personagensFortes = []
+    
+    for (let i = 0; i < nomes.length; i++) {
+        if (forcas[i] > 150) {  
+            personagensFortes.push(nomes[i])
+        }
     }
-    console.log(classificaNota(8))
-}
-// 5. Dia da Semana
-// Crie uma função chamada `diaDaSemana` que recebe um número (tipo: Number) de 1 a 7.
-// Utilize uma estrutura `switch` para retornar o nome do dia da semana correspondente.
-
-function diaDaSemana(dia){
-    switch(dia){
-        case 1:
-            console.log("domingo")
-            break
-        case 2:
-            console.log("segunda")
-        case 3:
-            console.log("terça")
-            break
-        case 4:
-            console.log("quarta")
-            break
-        case 5:
-            console.log("quinta")
-            break
-        case 6:
-            console.log("sexta")
-            break
-        case 7:
-            console.log("sabado")
-            break
-    } 
-}
-console.log(diaDaSemana(4))
-
-// 6. Classificação de Animal
-// Crie uma função chamada `classificaAnimal` que recebe uma string representando um animal dentre os seguintes: cachorro, gato, passarinho, salmão, lagarto.
-// Utilize uma estrutura `switch` para retornar se é "Mamífero", "Ave", "Anfíbio", "Peixe".
-
-function classificaAnimal(animal) {
-    switch (animal.toLowerCase()) {
-        case 'cachorro':
-        case 'gato':
-            return 'Mamífero'
-        case 'passarinho':
-            return 'Ave'
-        case 'salmão':
-            return 'Peixe'
-        case 'lagarto':
-            return 'Anfíbio'
-        default:
-            return 'Animal desconhecido'
-    }
+    
+    return personagensFortes
 }
 
-console.log(classificaAnimal('cachorro'))
-console.log(classificaAnimal('passarinho'))
-console.log(classificaAnimal('salmão')) 
-console.log(classificaAnimal('lagarto'))
-console.log(classificaAnimal('elefante'))
+const nomes = ["Gon Freecss", "Killua Zoldyck", "Leorio Paradinight"]
+const forcas = [180, 195, 140]
 
-// 7. Calculadora Simples
-// Crie uma função chamada `calculadora` que recebe dois números e uma string representando uma operação (soma, subtração, multiplicação, divisão).
-// Utilize uma estrutura `switch` para retornar o resultado da operação.
+console.log(personagemComForcaSuperiorA150(nomes, forcas))
 
-function calculadora(num1, num2, operacao) {
-    switch (operacao.toLowerCase()) {
-        case 'soma':
-            return num1 + num2;
-        case 'subtração':
-            return num1 - num2;
-        case 'multiplicação':
-            return num1 * num2;
-        case 'divisão':
-            if (num2 === 0) {
-                return 'Erro: Divisão por zero';
-            }
-            return num1 / num2;
-        default:
-            return 'Operação inválida. Use soma, subtração, multiplicação ou divisão.';
-    }
-}
 
-console.log(calculadora(10, 5, 'soma')); 
-console.log(calculadora(10, 5, 'subtração')); 
-console.log(calculadora(10, 5, 'multiplicação')); 
-console.log(calculadora(10, 5, 'divisão'))
-console.log(calculadora(10, 0, 'divisão'))
-console.log(calculadora(10, 5, 'modulo'))
+// Exemplo de chamada:
+//const nomes = ["Gon Freecss", "Killua Zoldyck", "Leorio Paradinight"];
+//const forcas = [80, 95, 40];
 
-// 9. Mensagem de Boas-Vindas
-// Crie uma função chamada `mensagemBoasVindas` que recebe um nome (tipo: String) e um horário (tipo: Number).
-// Utilize uma estrutura condicional `if`, `else if` e `else` para retornar uma mensagem apropriada: "Bom dia", "Boa tarde" ou "Boa noite".
+//console.log(personagemComForcaSuperiorA100(nomes, forcas));
 
-function mensagemBoasVindas(nome, horario) {
-    let saudacao;
 
-    if (horario >= 5 && horario < 12) {
-        saudacao = 'Bom dia'
-    } else if (horario >= 12 && horario < 18) {
-        saudacao = 'Boa tarde'
-    } else if (horario >= 18 && horario < 24) {
-        saudacao = 'Boa noite'
-    } else {
-        return 'Horário inválido. Por favor, insira um horário entre 0 e 23.'
+// 5. Crie uma função que receba um array de números e retorne a quantidade de números negativos presentes no array, usando um laço `while`.
+
+function contarNegativos(array) {
+    let contador = 0
+    let i = 0
+    
+    while (i < array.length) {
+        if (array[i] < 0) {  
+            contador++
+        }
+        i++
     }
 
-    return `${saudacao}, ${nome}!`
+    return contador
 }
 
-console.log(mensagemBoasVindas('Ana', 9)); 
-console.log(mensagemBoasVindas('Carlos', 15));
-console.log(mensagemBoasVindas('Julia', 20));
-console.log(mensagemBoasVindas('Roberto', 25))
+console.log(contarNegativos([3, -2, -5, 7, 0, -1]));
 
-// 10. Classificação de Filmes
-// Crie uma função chamada `classificaFilme` que recebe uma nota (tipo: Number) de um filme.
-// Utilize uma estrutura condicional `if`, `else if` e `else` para retornar "Excelente" (nota 8 ou mais), 
-// "Bom" (nota de 5 a 7) ou "Ruim" (nota abaixo de 5).
+// Exemplo de chamada:
+// console.log(contarNegativos([3, -2, -5, 7, 0, -1]));  // 3
 
-function classificaFilme(nota){
-    if(nota >= 8){
-        console.log(`o filme recebel ${nota} e eh excelente`)
-    }else if(nota < 8 && nota >= 5){
-        console.log(`o filme recebeu ${nota} e eh bom`)
-    }else{
-        console.log(`o filme recebeu ${nota} e eh uma m****`)
+// 6. Crie uma função que receba uma string, converta-a para um array e retorne a quantidade de vezes que a letra "a" aparece nela.
+
+function contarLetraA(str) {
+   
+    const arrayDeCaracteres = str.split('')
+    
+  
+    let count = 0
+    arrayDeCaracteres.forEach(char => {
+      if (char.toLowerCase() === 'a') {
+        count++
+      }
+    })
+    
+    return count
+  }
+  
+  console.log(contarLetraA("Naruto é um anime top!"))
+  
+
+// Exemplo de chamada:
+// console.log(contarLetraA("Naruto é um anime top!"));  // 4
+
+// 7. Crie uma função que percorra um array de filmes e retorne um novo array com os filmes que têm o nome começando com a letra "S" usando o laço `for...of`.
+
+function filmesComLetraS(filmes) {
+    
+    const filmesComS = []
+    
+    for (let filme of filmes) {
+      
+      if (filme[0].toUpperCase() === 'S') {
+        filmesComS.push(filme) 
+      }
     }
+    
+    return filmesComS
+  }
+  
+  console.log(filmesComLetraS(["Star Wars", "Superman", "Shrek", "Batman"]))
+  
+// Exemplo de chamada:
+// console.log(filmesComLetraS(["Star Wars", "Superman", "Shrek", "Batman"]));  // ["Star Wars", "Superman", "Shrek"]
+
+// 8. Crie uma função que receba um array de strings e retorne a maior substring (palavra) encontrada no array.
+
+function maiorSubstring(letras) {
+    let maiorPalavra = ""
+    
+    for (let palavra of letras) {
+      if (palavra.length > maiorPalavra.length) {
+        maiorPalavra = palavra
+      }
+    }
+    
+    return maiorPalavra
+  }
+  
+  console.log(maiorSubstring(["João", "Maria", "Alexandre", "Carlos"]))
+  
+// Exemplo de chamada:
+// console.log(maiorSubstring(["João", "Maria", "Alexandre", "Carlos"]));  // "Alexandre"
+
+// 9. Crie uma função que calcule o fatorial de um número utilizando um laço `for`.
+
+function fatorial(n) {
+    let resultado = 1;
+    for (let i = 1; i <= n; i++) {
+        resultado *= i
+    }
+    return resultado
 }
-classificaFilme(6.5)
+
+console.log(fatorial(5))
+
+// Exemplo de chamada:
+// console.log(fatorial(5));  // 120 (5 * 4 * 3 * 2 * 1)
+
+// 10. Crie uma função que receba um número e retorne uma string que contém esse número repetido, separado por vírgulas, utilizando um laço `while`.
+
+function repetirNumero(numero, repeticoes) {
+    let resultado = ''
+    let i = 0
+    
+    while (i < repeticoes) {
+        if (i > 0) {
+            resultado += ', '
+        }
+        resultado += numero
+        i++
+    }
+    
+    return resultado
+}
+
+console.log(repetirNumero(7, 4))
+
+// Exemplo de chamada:
+// console.log(repetirNumero(7, 4));  // "7, 7, 7, 7"
